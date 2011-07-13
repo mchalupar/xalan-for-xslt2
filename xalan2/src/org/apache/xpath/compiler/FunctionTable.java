@@ -269,18 +269,18 @@ public class FunctionTable
     m_functions[FUNC_STRING_ESCAPE_HTML_URI] = org.apache.xpath.functions.FuncStringEscapeHTMLURI.class;
     
     m_functions[FUNC_NUMBER_ADD] = org.apache.xpath.functions.FuncNumberAdd.class;
-    m_functions[FUNC_NUMBER_SUBTRACT] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_MULTIPLY] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_DIVIDE] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_INTEGER_DIVIDE] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_MOD] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_UNARY_PLUS] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_UNARY_MINUS] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_EQUAL] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_LESS_THAN] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_GREATER_THAN] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_ABS] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_NUMBER_ROUND_HALF_TO_EVEN] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_SUBTRACT] = org.apache.xpath.functions.FuncNumberSubtract.class;
+    m_functions[FUNC_NUMBER_MULTIPLY] = org.apache.xpath.functions.FuncNumberMultiply.class;
+    m_functions[FUNC_NUMBER_DIVIDE] = org.apache.xpath.functions.FuncNumberDivide.class;
+    m_functions[FUNC_NUMBER_INTEGER_DIVIDE] = org.apache.xpath.functions.FuncNumberIntegerDivide.class;
+    m_functions[FUNC_NUMBER_MOD] = org.apache.xpath.functions.FuncNumberMod.class;
+    m_functions[FUNC_NUMBER_UNARY_PLUS] = org.apache.xpath.functions.FuncNumberUnaryPlus.class;
+    m_functions[FUNC_NUMBER_UNARY_MINUS] = org.apache.xpath.functions.FuncNumberUnaryMinus.class;
+    m_functions[FUNC_NUMBER_EQUAL] = org.apache.xpath.functions.FuncNumberEqual.class;
+    m_functions[FUNC_NUMBER_LESS_THAN] = org.apache.xpath.functions.FuncNumberLessThan.class;
+    m_functions[FUNC_NUMBER_GREATER_THAN] = org.apache.xpath.functions.FuncNumberGreaterThan.class;
+    m_functions[FUNC_NUMBER_ABS] = org.apache.xpath.functions.FuncNumberABS.class;
+    m_functions[FUNC_NUMBER_ROUND_HALF_TO_EVEN] = org.apache.xpath.functions.FuncNumberRoundHalfToEven.class;
   }
 
   static{
