@@ -35,7 +35,7 @@ public class FunctionOneArg extends Function implements ExpressionOwner
 
   /** The first argument passed to the function (at index 0).
    *  @serial  */
-  Expression m_arg0;
+  protected Expression m_arg0;
 
   /**
    * Return the first argument passed to the function (at index 0).

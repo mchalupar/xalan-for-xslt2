@@ -163,6 +163,10 @@ public class FunctionTable
   public static final int FUNC_NUMBER_GREATER_THAN= 58;
   public static final int FUNC_NUMBER_ABS = 59;
   public static final int FUNC_NUMBER_ROUND_HALF_TO_EVEN = 60;
+  /** XSLT 2.0 Functions and Operators on Boolean */
+  public static final int FUNC_BOOLEAN_EQUAL = 61;
+  public static final int FUNC_BOOLEAN_LESS_THAN = 62;
+  public static final int FUNC_BOOLEAN_GREATER_THAN = 63;
 
   /**
    * The function table.
@@ -186,7 +190,7 @@ public class FunctionTable
    * Number of built in functions.  Be sure to update this as
    * built-in functions are added.
    */
-  private static final int NUM_BUILT_IN_FUNCS = 61;
+  private static final int NUM_BUILT_IN_FUNCS = 64;
 
   /**
    * Number of built-in functions that may be added.
@@ -215,29 +219,29 @@ public class FunctionTable
     m_functions[FUNC_QNAME] = org.apache.xpath.functions.FuncQname.class;
     m_functions[FUNC_GENERATE_ID] = 
       org.apache.xpath.functions.FuncGenerateId.class;
-    m_functions[FUNC_NOT] = org.apache.xpath.functions.FuncNot.class;
-    m_functions[FUNC_TRUE] = org.apache.xpath.functions.FuncTrue.class;
-    m_functions[FUNC_FALSE] = org.apache.xpath.functions.FuncFalse.class;
-    m_functions[FUNC_BOOLEAN] = org.apache.xpath.functions.FuncBoolean.class;
+    m_functions[FUNC_NOT] = org.apache.xpath.functions.Boolean.FuncNot.class;
+    m_functions[FUNC_TRUE] = org.apache.xpath.functions.Boolean.FuncTrue.class;
+    m_functions[FUNC_FALSE] = org.apache.xpath.functions.Boolean.FuncFalse.class;
+    m_functions[FUNC_BOOLEAN] = org.apache.xpath.functions.Boolean.FuncBoolean.class;
     m_functions[FUNC_LANG] = org.apache.xpath.functions.FuncLang.class;
-    m_functions[FUNC_NUMBER] = org.apache.xpath.functions.FuncNumber.class;
-    m_functions[FUNC_FLOOR] = org.apache.xpath.functions.FuncFloor.class;
-    m_functions[FUNC_CEILING] = org.apache.xpath.functions.FuncCeiling.class;
-    m_functions[FUNC_ROUND] = org.apache.xpath.functions.FuncRound.class;
-    m_functions[FUNC_SUM] = org.apache.xpath.functions.FuncSum.class;
-    m_functions[FUNC_STRING] = org.apache.xpath.functions.FuncString.class;
+    m_functions[FUNC_NUMBER] = org.apache.xpath.functions.Number.FuncNumber.class;
+    m_functions[FUNC_FLOOR] = org.apache.xpath.functions.Number.FuncFloor.class;
+    m_functions[FUNC_CEILING] = org.apache.xpath.functions.Number.FuncCeiling.class;
+    m_functions[FUNC_ROUND] = org.apache.xpath.functions.Number.FuncRound.class;
+    m_functions[FUNC_SUM] = org.apache.xpath.functions.Number.FuncSum.class;
+    m_functions[FUNC_STRING] = org.apache.xpath.functions.String.FuncString.class;
     m_functions[FUNC_STARTS_WITH] = 
-      org.apache.xpath.functions.FuncStartsWith.class;
-    m_functions[FUNC_CONTAINS] = org.apache.xpath.functions.FuncContains.class;
+      org.apache.xpath.functions.String.FuncStartsWith.class;
+    m_functions[FUNC_CONTAINS] = org.apache.xpath.functions.String.FuncContains.class;
     m_functions[FUNC_SUBSTRING_BEFORE] = 
-      org.apache.xpath.functions.FuncSubstringBefore.class;
+      org.apache.xpath.functions.String.FuncSubstringBefore.class;
     m_functions[FUNC_SUBSTRING_AFTER] = 
-      org.apache.xpath.functions.FuncSubstringAfter.class;
+      org.apache.xpath.functions.String.FuncSubstringAfter.class;
     m_functions[FUNC_NORMALIZE_SPACE] = 
       org.apache.xpath.functions.FuncNormalizeSpace.class;
     m_functions[FUNC_TRANSLATE] = 
       org.apache.xpath.functions.FuncTranslate.class;
-    m_functions[FUNC_CONCAT] = org.apache.xpath.functions.FuncConcat.class;
+    m_functions[FUNC_CONCAT] = org.apache.xpath.functions.String.FuncConcat.class;
     m_functions[FUNC_SYSTEM_PROPERTY] = 
       org.apache.xpath.functions.FuncSystemProperty.class;
     m_functions[FUNC_EXT_FUNCTION_AVAILABLE] =
@@ -245,42 +249,46 @@ public class FunctionTable
     m_functions[FUNC_EXT_ELEM_AVAILABLE] =
       org.apache.xpath.functions.FuncExtElementAvailable.class;
     m_functions[FUNC_SUBSTRING] = 
-      org.apache.xpath.functions.FuncSubstring.class;
+      org.apache.xpath.functions.String.FuncSubstring.class;
     m_functions[FUNC_STRING_LENGTH] = 
-      org.apache.xpath.functions.FuncStringLength.class;
+      org.apache.xpath.functions.String.FuncStringLength.class;
     m_functions[FUNC_DOCLOCATION] = 
       org.apache.xpath.functions.FuncDoclocation.class;
     m_functions[FUNC_UNPARSED_ENTITY_URI] =
       org.apache.xpath.functions.FuncUnparsedEntityURI.class;
     m_functions[FUNC_ENDS_WITH] = 
-        org.apache.xpath.functions.FuncEndsWith.class;
+        org.apache.xpath.functions.String.FuncEndsWith.class;
     m_functions[FUNC_UPPER_CASE] = 
-        org.apache.xpath.functions.FuncUpperCase.class;
+        org.apache.xpath.functions.String.FuncUpperCase.class;
     m_functions[FUNC_LOWER_CASE] = 
-        org.apache.xpath.functions.FuncLowerCase.class;
+        org.apache.xpath.functions.String.FuncLowerCase.class;
     m_functions[FUNC_STRING_JOIN] = 
-        org.apache.xpath.functions.FuncStringJoin.class;
-    m_functions[FUNC_STRING_MATCHES] = org.apache.xpath.functions.FuncStringMatches.class;
-    m_functions[FUNC_STRING_REPLACE] = org.apache.xpath.functions.FuncStringReplace.class;
-    m_functions[FUNC_STRING_TOKENIZE] = org.apache.xpath.functions.FuncStringTokenize.class;
-    m_functions[FUNC_STRING_NORMALIZE_UNICODE] = org.apache.xpath.functions.FuncStringNormalizeUnicode.class;
-    m_functions[FUNC_STRING_ENCODE_FOR_URI] = org.apache.xpath.functions.FuncStringEncodeForURI.class;
-    m_functions[FUNC_STRING_IRI_TO_URI] = org.apache.xpath.functions.FuncStringIriToUri.class;
-    m_functions[FUNC_STRING_ESCAPE_HTML_URI] = org.apache.xpath.functions.FuncStringEscapeHTMLURI.class;
+        org.apache.xpath.functions.String.FuncStringJoin.class;
+    m_functions[FUNC_STRING_MATCHES] = org.apache.xpath.functions.String.FuncStringMatches.class;
+    m_functions[FUNC_STRING_REPLACE] = org.apache.xpath.functions.String.FuncStringReplace.class;
+    m_functions[FUNC_STRING_TOKENIZE] = org.apache.xpath.functions.String.FuncStringTokenize.class;
+    m_functions[FUNC_STRING_NORMALIZE_UNICODE] = org.apache.xpath.functions.String.FuncStringNormalizeUnicode.class;
+    m_functions[FUNC_STRING_ENCODE_FOR_URI] = org.apache.xpath.functions.String.FuncStringEncodeForURI.class;
+    m_functions[FUNC_STRING_IRI_TO_URI] = org.apache.xpath.functions.String.FuncStringIriToUri.class;
+    m_functions[FUNC_STRING_ESCAPE_HTML_URI] = org.apache.xpath.functions.String.FuncStringEscapeHTMLURI.class;
     
-    m_functions[FUNC_NUMBER_ADD] = org.apache.xpath.functions.FuncNumberAdd.class;
-    m_functions[FUNC_NUMBER_SUBTRACT] = org.apache.xpath.functions.FuncNumberSubtract.class;
-    m_functions[FUNC_NUMBER_MULTIPLY] = org.apache.xpath.functions.FuncNumberMultiply.class;
-    m_functions[FUNC_NUMBER_DIVIDE] = org.apache.xpath.functions.FuncNumberDivide.class;
-    m_functions[FUNC_NUMBER_INTEGER_DIVIDE] = org.apache.xpath.functions.FuncNumberIntegerDivide.class;
-    m_functions[FUNC_NUMBER_MOD] = org.apache.xpath.functions.FuncNumberMod.class;
-    m_functions[FUNC_NUMBER_UNARY_PLUS] = org.apache.xpath.functions.FuncNumberUnaryPlus.class;
-    m_functions[FUNC_NUMBER_UNARY_MINUS] = org.apache.xpath.functions.FuncNumberUnaryMinus.class;
-    m_functions[FUNC_NUMBER_EQUAL] = org.apache.xpath.functions.FuncNumberEqual.class;
-    m_functions[FUNC_NUMBER_LESS_THAN] = org.apache.xpath.functions.FuncNumberLessThan.class;
-    m_functions[FUNC_NUMBER_GREATER_THAN] = org.apache.xpath.functions.FuncNumberGreaterThan.class;
-    m_functions[FUNC_NUMBER_ABS] = org.apache.xpath.functions.FuncNumberABS.class;
-    m_functions[FUNC_NUMBER_ROUND_HALF_TO_EVEN] = org.apache.xpath.functions.FuncNumberRoundHalfToEven.class;
+    m_functions[FUNC_NUMBER_ADD] = org.apache.xpath.functions.Number.FuncNumberAdd.class;
+    m_functions[FUNC_NUMBER_SUBTRACT] = org.apache.xpath.functions.Number.FuncNumberSubtract.class;
+    m_functions[FUNC_NUMBER_MULTIPLY] = org.apache.xpath.functions.Number.FuncNumberMultiply.class;
+    m_functions[FUNC_NUMBER_DIVIDE] = org.apache.xpath.functions.Number.FuncNumberDivide.class;
+    m_functions[FUNC_NUMBER_INTEGER_DIVIDE] = org.apache.xpath.functions.Number.FuncNumberIntegerDivide.class;
+    m_functions[FUNC_NUMBER_MOD] = org.apache.xpath.functions.Number.FuncNumberMod.class;
+    m_functions[FUNC_NUMBER_UNARY_PLUS] = org.apache.xpath.functions.Number.FuncNumberUnaryPlus.class;
+    m_functions[FUNC_NUMBER_UNARY_MINUS] = org.apache.xpath.functions.Number.FuncNumberUnaryMinus.class;
+    m_functions[FUNC_NUMBER_EQUAL] = org.apache.xpath.functions.Number.FuncNumberEqual.class;
+    m_functions[FUNC_NUMBER_LESS_THAN] = org.apache.xpath.functions.Number.FuncNumberLessThan.class;
+    m_functions[FUNC_NUMBER_GREATER_THAN] = org.apache.xpath.functions.Number.FuncNumberGreaterThan.class;
+    m_functions[FUNC_NUMBER_ABS] = org.apache.xpath.functions.Number.FuncNumberABS.class;
+    m_functions[FUNC_NUMBER_ROUND_HALF_TO_EVEN] = org.apache.xpath.functions.Number.FuncNumberRoundHalfToEven.class;
+    
+    m_functions[FUNC_BOOLEAN_EQUAL] = org.apache.xpath.functions.Boolean.FuncBooleanEqual.class;
+    m_functions[FUNC_BOOLEAN_LESS_THAN] = org.apache.xpath.functions.Boolean.FuncBooleanLessThan.class;
+    m_functions[FUNC_BOOLEAN_GREATER_THAN] = org.apache.xpath.functions.Boolean.FuncBooleanGreaterThan.class;
   }
 
   static{
