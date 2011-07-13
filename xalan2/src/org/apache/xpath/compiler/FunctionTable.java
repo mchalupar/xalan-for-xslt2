@@ -137,17 +137,10 @@ public class FunctionTable
 
   /** The 'document-location()' id (Proprietary). */
   public static final int FUNC_DOCLOCATION = 35;
-  
-  /** The 'ends-with()' id. */
+  /** XSLT 2.0 Functions and Operators on String */
   public static final int FUNC_ENDS_WITH = 37;
-  
-  /** The 'upper-case()' id. */
   public static final int FUNC_UPPER_CASE = 38;
-  
-  /** The 'lower-case()' id. */
   public static final int FUNC_LOWER_CASE = 39;
-  
-  /** The 'string-join()' id. */
   public static final int FUNC_STRING_JOIN = 40;
   public static final int FUNC_STRING_MATCHES = 41;
   public static final int FUNC_STRING_REPLACE = 42;
@@ -156,6 +149,20 @@ public class FunctionTable
   public static final int FUNC_STRING_ENCODE_FOR_URI = 45;
   public static final int FUNC_STRING_IRI_TO_URI = 46;
   public static final int FUNC_STRING_ESCAPE_HTML_URI = 47;
+  /** XSLT 2.0 Functions and Operators on Numerics */
+  public static final int FUNC_NUMBER_ADD= 48;
+  public static final int FUNC_NUMBER_SUBTRACT= 49;
+  public static final int FUNC_NUMBER_MULTIPLY= 50;
+  public static final int FUNC_NUMBER_DIVIDE= 51;
+  public static final int FUNC_NUMBER_INTEGER_DIVIDE= 52;
+  public static final int FUNC_NUMBER_MOD= 53;
+  public static final int FUNC_NUMBER_UNARY_PLUS= 54;
+  public static final int FUNC_NUMBER_UNARY_MINUS= 55;
+  public static final int FUNC_NUMBER_EQUAL= 56;
+  public static final int FUNC_NUMBER_LESS_THAN= 57;
+  public static final int FUNC_NUMBER_GREATER_THAN= 58;
+  public static final int FUNC_NUMBER_ABS = 59;
+  public static final int FUNC_NUMBER_ROUND_HALF_TO_EVEN = 60;
 
   /**
    * The function table.
@@ -179,7 +186,7 @@ public class FunctionTable
    * Number of built in functions.  Be sure to update this as
    * built-in functions are added.
    */
-  private static final int NUM_BUILT_IN_FUNCS = 48;
+  private static final int NUM_BUILT_IN_FUNCS = 61;
 
   /**
    * Number of built-in functions that may be added.
@@ -260,6 +267,20 @@ public class FunctionTable
     m_functions[FUNC_STRING_ENCODE_FOR_URI] = org.apache.xpath.functions.FuncStringEncodeForURI.class;
     m_functions[FUNC_STRING_IRI_TO_URI] = org.apache.xpath.functions.FuncStringIriToUri.class;
     m_functions[FUNC_STRING_ESCAPE_HTML_URI] = org.apache.xpath.functions.FuncStringEscapeHTMLURI.class;
+    
+    m_functions[FUNC_NUMBER_ADD] = org.apache.xpath.functions.FuncNumberAdd.class;
+    m_functions[FUNC_NUMBER_SUBTRACT] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_MULTIPLY] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_DIVIDE] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_INTEGER_DIVIDE] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_MOD] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_UNARY_PLUS] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_UNARY_MINUS] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_EQUAL] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_LESS_THAN] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_GREATER_THAN] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_ABS] = org.apache.xpath.functions.FuncNumber.class;
+    m_functions[FUNC_NUMBER_ROUND_HALF_TO_EVEN] = org.apache.xpath.functions.FuncNumber.class;
   }
 
   static{
@@ -348,6 +369,20 @@ public class FunctionTable
           m_functionID.put(Keywords.FUNC_STRING_ENCODE_FOR_URI, new Integer(FUNC_STRING_ENCODE_FOR_URI));
           m_functionID.put(Keywords.FUNC_STRING_IRI_TO_URI, new Integer(FUNC_STRING_IRI_TO_URI));
           m_functionID.put(Keywords.FUNC_STRING_ESCAPE_HTML_URI, new Integer(FUNC_STRING_ESCAPE_HTML_URI));
+          
+          m_functionID.put(Keywords.FUNC_NUMBER_ADD, new Integer(FUNC_NUMBER_ADD));
+          m_functionID.put(Keywords.FUNC_NUMBER_SUBTRACT, new Integer(FUNC_NUMBER_SUBTRACT));
+          m_functionID.put(Keywords.FUNC_NUMBER_MULTIPLY, new Integer(FUNC_NUMBER_MULTIPLY));
+          m_functionID.put(Keywords.FUNC_NUMBER_DIVIDE, new Integer(FUNC_NUMBER_DIVIDE));
+          m_functionID.put(Keywords.FUNC_NUMBER_INTEGER_DIVIDE, new Integer(FUNC_NUMBER_INTEGER_DIVIDE));
+          m_functionID.put(Keywords.FUNC_NUMBER_MOD, new Integer(FUNC_NUMBER_MOD));
+          m_functionID.put(Keywords.FUNC_NUMBER_UNARY_PLUS, new Integer(FUNC_NUMBER_UNARY_PLUS));
+          m_functionID.put(Keywords.FUNC_NUMBER_UNARY_MINUS, new Integer(FUNC_NUMBER_UNARY_MINUS));
+          m_functionID.put(Keywords.FUNC_NUMBER_EQUAL, new Integer(FUNC_NUMBER_EQUAL));
+          m_functionID.put(Keywords.FUNC_NUMBER_LESS_THAN, new Integer(FUNC_NUMBER_LESS_THAN));
+          m_functionID.put(Keywords.FUNC_NUMBER_GREATER_THAN, new Integer(FUNC_NUMBER_GREATER_THAN));
+          m_functionID.put(Keywords.FUNC_NUMBER_ABS, new Integer(FUNC_NUMBER_ABS));
+          m_functionID.put(Keywords.FUNC_NUMBER_ROUND_HALF_TO_EVEN, new Integer(FUNC_NUMBER_ROUND_HALF_TO_EVEN));
   }
   
   public FunctionTable(){
