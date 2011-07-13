@@ -198,6 +198,14 @@ Xalan can not find the ' ends-with ' function, XSLT 2.0 includes this function b
 If you run the sample test case with this project environment, you will get the following output:
 {{{
 
+Loading classes, parsing foo.xml, and setting up serializer
+Querying DOM using /doc/name[ends-with(@first,'d')]
+<output>
+<name first="David" last="Marston">David Marston</name>
+<name first="David" last="Bertoni">David Bertoni</name>
+<name first="Donald" last="Leslie">Donald Leslie</name>
+</output>
+
 }}}
 
 See, it works well :-)
