@@ -179,7 +179,7 @@ public class FunctionTable
    * Number of built in functions.  Be sure to update this as
    * built-in functions are added.
    */
-  private static final int NUM_BUILT_IN_FUNCS = 41;
+  private static final int NUM_BUILT_IN_FUNCS = 48;
 
   /**
    * Number of built-in functions that may be added.
