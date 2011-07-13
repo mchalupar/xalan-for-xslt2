@@ -212,13 +212,10 @@ public class Keywords
 
   /** current function string (Proprietary). */
   public static final String FUNC_DOCLOCATION_STRING = "document-location";
-  /** ends-with function string. */
+  /** XSLT 2.0 Functions and Operators on String */
   public static final String FUNC_ENDS_WITH_STRING = "ends-with";
-  /** upper-case function string. */
   public static final String FUNC_UPPER_CASE_STRING = "upper-case";
-  /** lower-case function string. */
   public static final String FUNC_LOWER_CASE_STRING = "lower-case";
-  /** string-join function string. */
   public static final String FUNC_STRING_JOIN_STRING = "string-join";
   public static final String FUNC_STRING_MATCHES = "matches";
   public static final String FUNC_STRING_REPLACE = "replace";
@@ -227,6 +224,21 @@ public class Keywords
   public static final String FUNC_STRING_ENCODE_FOR_URI = "encode-for-uri";
   public static final String FUNC_STRING_IRI_TO_URI = "iri-to-uri";
   public static final String FUNC_STRING_ESCAPE_HTML_URI = "escape-html-uri";
+  
+  /** XSLT 2.0 Functions and Operators on Numerics */
+  public static final String FUNC_NUMBER_ADD= "numeric-add";
+  public static final String FUNC_NUMBER_SUBTRACT= "numeric-subtract";
+  public static final String FUNC_NUMBER_MULTIPLY= "numeric-multiply";
+  public static final String FUNC_NUMBER_DIVIDE= "numeric-divide";
+  public static final String FUNC_NUMBER_INTEGER_DIVIDE= "numeric-integer-divide";
+  public static final String FUNC_NUMBER_MOD= "numeric-mod";
+  public static final String FUNC_NUMBER_UNARY_PLUS= "numeric-unary-plus";
+  public static final String FUNC_NUMBER_UNARY_MINUS= "numeric-unary-minus";
+  public static final String FUNC_NUMBER_EQUAL= "numeric-equal";
+  public static final String FUNC_NUMBER_LESS_THAN= "numeric-less-than";
+  public static final String FUNC_NUMBER_GREATER_THAN= "numeric-greater-than";
+  public static final String FUNC_NUMBER_ABS = "abs";
+  public static final String FUNC_NUMBER_ROUND_HALF_TO_EVEN = "round-half-to-even";
 
   static
   {
