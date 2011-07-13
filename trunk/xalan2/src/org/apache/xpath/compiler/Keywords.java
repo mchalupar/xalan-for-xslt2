@@ -239,6 +239,10 @@ public class Keywords
   public static final String FUNC_NUMBER_GREATER_THAN= "numeric-greater-than";
   public static final String FUNC_NUMBER_ABS = "abs";
   public static final String FUNC_NUMBER_ROUND_HALF_TO_EVEN = "round-half-to-even";
+  /** XSLT 2.0 Functions and Operators on Boolean */
+  public static final String FUNC_BOOLEAN_EQUAL = "boolean-equal";
+  public static final String FUNC_BOOLEAN_LESS_THAN = "boolean-less-than";
+  public static final String FUNC_BOOLEAN_GREATER_THAN = "boolean-greater-than";
 
   static
   {
