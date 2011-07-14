@@ -168,6 +168,20 @@ public class FunctionTable
   public static final int FUNC_BOOLEAN_LESS_THAN = 62;
   public static final int FUNC_BOOLEAN_GREATER_THAN = 63;
 
+  public static final int FUNC_AGGREGATE_MAX = 64;
+  public static final int FUNC_AGGREGATE_MIN = 65;
+  public static final int FUNC_AGGREGATE_AVG = 66;
+  
+  public static final int FUNC_SEQUENCE_CONCATENATE = 67;
+  public static final int FUNC_SEQUENCE_INDEXOF =68;
+  public static final int FUNC_SEQUENCE_EMPTY =69;
+  public static final int FUNC_SEQUENCE_EXISTS =70;
+  public static final int FUNC_SEQUENCE_DISTINCT_VALUE =71;
+  public static final int FUNC_SEQUENCE_INSERT_BEFORE =72;
+  public static final int FUNC_SEQUENCE_REMOVE =73;
+  public static final int FUNC_SEQUENCE_REVERSE =74;
+  public static final int FUNC_SEQUENCE_SUBSEQUENCE =75;
+  public static final int FUNC_SEQUENCE_UNORDERED =76;
   /**
    * The function table.
    */
@@ -190,7 +204,7 @@ public class FunctionTable
    * Number of built in functions.  Be sure to update this as
    * built-in functions are added.
    */
-  private static final int NUM_BUILT_IN_FUNCS = 64;
+  private static final int NUM_BUILT_IN_FUNCS = 77;
 
   /**
    * Number of built-in functions that may be added.
@@ -289,6 +303,21 @@ public class FunctionTable
     m_functions[FUNC_BOOLEAN_EQUAL] = org.apache.xpath.functions.Boolean.FuncBooleanEqual.class;
     m_functions[FUNC_BOOLEAN_LESS_THAN] = org.apache.xpath.functions.Boolean.FuncBooleanLessThan.class;
     m_functions[FUNC_BOOLEAN_GREATER_THAN] = org.apache.xpath.functions.Boolean.FuncBooleanGreaterThan.class;
+    
+    m_functions[FUNC_AGGREGATE_MAX] = org.apache.xpath.functions.FuncAggregateMax.class;
+    m_functions[FUNC_AGGREGATE_MIN] = org.apache.xpath.functions.FuncAggregateMin.class;
+    m_functions[FUNC_AGGREGATE_AVG] = org.apache.xpath.functions.FuncAggregateAvg.class;
+    
+    m_functions[FUNC_SEQUENCE_CONCATENATE] = org.apache.xpath.functions.sequence.FuncSequenceConcatenate.class;
+    m_functions[FUNC_SEQUENCE_INDEXOF] = org.apache.xpath.functions.sequence.FuncSequenceIndexof.class;
+    m_functions[FUNC_SEQUENCE_EMPTY] = org.apache.xpath.functions.sequence.FuncSequenceEmpty.class;
+    m_functions[FUNC_SEQUENCE_EXISTS] = org.apache.xpath.functions.sequence.FuncSequenceExists.class;
+    m_functions[FUNC_SEQUENCE_DISTINCT_VALUE] = org.apache.xpath.functions.sequence.FuncSequenceDistinctValue.class;
+    m_functions[FUNC_SEQUENCE_INSERT_BEFORE] = org.apache.xpath.functions.sequence.FuncSequenceInsertBefore.class;
+    m_functions[FUNC_SEQUENCE_REMOVE] = org.apache.xpath.functions.sequence.FuncSequenceRemove.class;
+    m_functions[FUNC_SEQUENCE_REVERSE] = org.apache.xpath.functions.sequence.FuncSequenceReverse.class;
+    m_functions[FUNC_SEQUENCE_SUBSEQUENCE] = org.apache.xpath.functions.sequence.FuncSequenceSubsequence.class;
+    m_functions[FUNC_SEQUENCE_UNORDERED] = org.apache.xpath.functions.sequence.FuncSequenceUnordered.class;
   }
 
   static{
@@ -391,6 +420,21 @@ public class FunctionTable
           m_functionID.put(Keywords.FUNC_NUMBER_GREATER_THAN, new Integer(FUNC_NUMBER_GREATER_THAN));
           m_functionID.put(Keywords.FUNC_NUMBER_ABS, new Integer(FUNC_NUMBER_ABS));
           m_functionID.put(Keywords.FUNC_NUMBER_ROUND_HALF_TO_EVEN, new Integer(FUNC_NUMBER_ROUND_HALF_TO_EVEN));
+          
+          m_functionID.put(Keywords.FUNC_AGGREGATE_MAX, new Integer(FUNC_AGGREGATE_MAX));
+          m_functionID.put(Keywords.FUNC_AGGREGATE_MIN, new Integer(FUNC_AGGREGATE_MIN));
+          m_functionID.put(Keywords.FUNC_AGGREGATE_AVG, new Integer(FUNC_AGGREGATE_AVG));
+          
+          m_functionID.put(Keywords.FUNC_SEQUENCE_CONCATENATE, new Integer(FUNC_SEQUENCE_CONCATENATE));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_INDEXOF, new Integer(FUNC_SEQUENCE_INDEXOF));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_EMPTY, new Integer(FUNC_SEQUENCE_EMPTY));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_EXISTS, new Integer(FUNC_SEQUENCE_EXISTS));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_DISTINCT_VALUE, new Integer(FUNC_SEQUENCE_DISTINCT_VALUE));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_INSERT_BEFORE, new Integer(FUNC_SEQUENCE_INSERT_BEFORE));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_REMOVE, new Integer(FUNC_SEQUENCE_REMOVE));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_REVERSE, new Integer(FUNC_SEQUENCE_REVERSE));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_SUBSEQUENCE, new Integer(FUNC_SEQUENCE_SUBSEQUENCE));
+          m_functionID.put(Keywords.FUNC_SEQUENCE_UNORDERED, new Integer(FUNC_SEQUENCE_UNORDERED));
   }
   
   public FunctionTable(){

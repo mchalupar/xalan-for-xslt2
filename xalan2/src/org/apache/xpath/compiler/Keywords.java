@@ -244,6 +244,21 @@ public class Keywords
   public static final String FUNC_BOOLEAN_LESS_THAN = "boolean-less-than";
   public static final String FUNC_BOOLEAN_GREATER_THAN = "boolean-greater-than";
 
+  public static final String FUNC_AGGREGATE_MAX = "max";
+  public static final String FUNC_AGGREGATE_MIN = "min";
+  public static final String FUNC_AGGREGATE_AVG = "avg";
+  
+  public static final String FUNC_SEQUENCE_CONCATENATE = "concatenate";
+  public static final String FUNC_SEQUENCE_INDEXOF ="index-of";
+  public static final String FUNC_SEQUENCE_EMPTY ="empty";
+  public static final String FUNC_SEQUENCE_EXISTS ="exists";
+  public static final String FUNC_SEQUENCE_DISTINCT_VALUE ="distinct-values";
+  public static final String FUNC_SEQUENCE_INSERT_BEFORE ="insert-before";
+  public static final String FUNC_SEQUENCE_REMOVE ="remove";
+  public static final String FUNC_SEQUENCE_REVERSE ="reverse";
+  public static final String FUNC_SEQUENCE_SUBSEQUENCE ="subsequence";
+  public static final String FUNC_SEQUENCE_UNORDERED ="unordered";
+  
   static
   {
     m_axisnames.put(FROM_ANCESTORS_STRING,
