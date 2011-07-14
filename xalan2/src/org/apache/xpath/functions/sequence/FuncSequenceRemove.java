@@ -20,12 +20,15 @@
  */
 package org.apache.xpath.functions.sequence;
 
+import java.util.HashMap;
+
 import org.apache.xml.dtm.DTM;
 import org.apache.xml.dtm.DTMIterator;
+import org.apache.xml.utils.NodeVector;
 import org.apache.xml.utils.XMLString;
 import org.apache.xpath.XPathContext;
 import org.apache.xpath.axes.NodeSequence;
-import org.apache.xpath.functions.FunctionOneArg;
+import org.apache.xpath.functions.Function2Args;
 import org.apache.xpath.objects.XObject;
 
 /**
@@ -33,7 +36,7 @@ import org.apache.xpath.objects.XObject;
  * @author wangqi.aguai.2011@gmail.com @ Beijing China
  *
  */
-public class FuncSequenceRemove extends FunctionOneArg
+public class FuncSequenceRemove extends Function2Args
 {
     static final long serialVersionUID = -2719049259574677519L;
 
@@ -47,18 +50,19 @@ public class FuncSequenceRemove extends FunctionOneArg
    */
   public XObject execute(XPathContext xctxt) throws javax.xml.transform.TransformerException
   {
+	    DTMIterator nodes = m_arg0.asIterator(xctxt, xctxt.getCurrentNode());
+	    int turn =  (int) m_arg1.execute(xctxt).num();
+	    NodeVector nv = new NodeVector();
+	    int pos;
+	    while (DTM.NULL != (pos = nodes.nextNode()))
+	    {
+	      DTM dtm = nodes.getDTM(pos);
+	      XMLString s = dtm.getStringValue(pos);
+	      if(turn != pos)
+	    	  nv.addElement((int) s.toDouble());
+	    }
+	    nodes.detach();
 
-    DTMIterator nodes = m_arg0.asIterator(xctxt, xctxt.getCurrentNode());
-    int pos;
-
-    while (DTM.NULL != (pos = nodes.nextNode()))
-    {
-      DTM dtm = nodes.getDTM(pos);
-      XMLString s = dtm.getStringValue(pos);
-
-    }
-    nodes.detach();
-
-    return new NodeSequence();
+	    return new NodeSequence(nv);
   }
 }
