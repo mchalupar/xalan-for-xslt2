@@ -26,6 +26,7 @@ import org.apache.xml.utils.XMLString;
 import org.apache.xpath.XPathContext;
 import org.apache.xpath.axes.NodeSequence;
 import org.apache.xpath.functions.FunctionOneArg;
+import org.apache.xpath.objects.XBoolean;
 import org.apache.xpath.objects.XObject;
 
 /**
@@ -49,16 +50,9 @@ public class FuncSequenceEmpty extends FunctionOneArg
   {
 
     DTMIterator nodes = m_arg0.asIterator(xctxt, xctxt.getCurrentNode());
-    int pos;
-
-    while (DTM.NULL != (pos = nodes.nextNode()))
-    {
-      DTM dtm = nodes.getDTM(pos);
-      XMLString s = dtm.getStringValue(pos);
-
-    }
-    nodes.detach();
-
-    return new NodeSequence();
+    if(nodes!=null &&nodes.getLength() > 0)
+    	return XBoolean.S_FALSE;
+    else return XBoolean.S_TRUE;
+    
   }
 }
